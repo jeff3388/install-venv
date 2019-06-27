@@ -1,7 +1,8 @@
 import requests
 import random
+import time
 
-t = random.randint(1,300)
+t = random.randint(1,2)
 time.sleep(t)
 
 req = requests.Session()
