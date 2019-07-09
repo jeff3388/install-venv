@@ -161,11 +161,11 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36'
 }
 
-t = random.randint(1,2)
+t = random.randint(1,60)
 time.sleep(t)
 
-web_url = "https://twypage.com/sd-796821-C-%e5%8f%b0%e5%8d%97-%e8%a9%a0%e6%88%90%e7%9c%9f%e7%a9%ba%e7%a7%91%e6%8a%80%e6%9c%89%e9%99%90%e5%85%ac%e5%8f%b8.html"
-
+respones = requests.get("http://temp.check-article.cfd888.info/yp-url")
+web_url = respones.text.split(';')
 
 company_information = crawler(web_url,headers,datetime_str)
 
