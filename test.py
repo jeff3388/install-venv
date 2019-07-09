@@ -161,18 +161,23 @@ headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36'
 }
 
-t = random.randint(1,60)
-time.sleep(t)
+# t = random.randint(1,60)
+# time.sleep(t)
 
 respones = requests.get("http://temp.check-article.cfd888.info/yp-url")
-web_url = respones.text.split(';')
+url_ls = respones.text.split(';')
 
-company_information = crawler(web_url,headers,datetime_str)
+com_info = []
 
+for url in url_ls:
+    company_information = crawler(url,headers,datetime_str)
+    com_info += [company_information]
+
+info = ";".join(com_info)
 # post api
 url = 'http://temp.check-article.cfd888.info/write_csv'
 
-data = {'string': company_information}
+data = {'string': info}
 
 r = requests.post(url=url, data=data, timeout=5)
 print(r.text)
