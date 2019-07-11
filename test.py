@@ -17,7 +17,7 @@ datetime_str = datetime_dt.strftime("%Y-%m-%d") # today date transfer to sting f
 url = 'http://temp.check-article.cfd888.info/test_csv'
 
 contents = get_mac_address()
-data = {'test': contents}
+data = {'test': contents + "→" + datetime_str}
 
 r = requests.post(url=url, data=data, timeout=5)
 print(r.text)
