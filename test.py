@@ -13,6 +13,9 @@ def get_mac_address():
 datetime_dt = datetime.datetime.today()
 datetime_str = datetime_dt.strftime("%Y-%m-%d %H:%M:%S") # today date transfer to sting format
 
+t = random.randint(1,100)
+time.sleep(t)
+
 # post api
 url = 'http://temp.check-article.cfd888.info/test_csv'
 
